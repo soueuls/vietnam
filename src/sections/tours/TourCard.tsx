@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import {
   Button,
   Card,
@@ -8,13 +9,9 @@ import {
   Text,
   Stack,
 } from "@chakra-ui/react";
+import type { Tour } from "./types";
 
-type Props = {
-  imageUrl: string;
-  name: string;
-  shortDescription: string;
-};
-export const TourCard = ({ imageUrl, name, shortDescription }: Props) => {
+export const TourCard = ({ slug, name, images, texts }: Tour) => {
   return (
     <Card
       shadow="md"
@@ -24,7 +21,7 @@ export const TourCard = ({ imageUrl, name, shortDescription }: Props) => {
     >
       <CardHeader pb="0">
         <Image
-          src={imageUrl}
+          src={images.hero}
           alt={name}
           height="64"
           w="full"
@@ -32,12 +29,17 @@ export const TourCard = ({ imageUrl, name, shortDescription }: Props) => {
         />
       </CardHeader>
       <CardBody display="flex">
-        <Stack justify="space-between" spacing="6">
+        <Stack align="flex-start" justify="space-between" spacing="6">
           <Stack spacing="0" color="blue.800">
             <Heading size="lg">{name}</Heading>
-            <Text>{shortDescription}</Text>
+            <Text>{texts.shortDescription}</Text>
           </Stack>
-          <Button variant="outline" colorScheme="blue">
+          <Button
+            as={NextLink}
+            href={{ pathname: "/tours/[slug]", query: { slug } }}
+            variant="outline"
+            colorScheme="blue"
+          >
             Discover
           </Button>
         </Stack>
