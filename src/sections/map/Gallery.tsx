@@ -13,10 +13,10 @@ export const Gallery = ({ images }: Props) => {
   return (
     <ImageGallery
       items={items}
+      showNav={false}
       showThumbnails={false}
       showPlayButton={false}
       showFullscreenButton={false}
-      showBullets
       autoPlay
     />
   );

@@ -7,10 +7,10 @@ import { NoTouristsTraps } from "./NoTouristsTraps";
 
 export const WhyUs = () => {
   return (
-    <chakra.section py="12">
+    <chakra.section id="why-us" py={{ base: "6", md: "12" }}>
       <Reasons />
-      <Container maxW="container.xl" py="24">
-        <Stack spacing="20">
+      <Container maxW="container.xl" py={{ base: "12", md: "24" }}>
+        <Stack spacing={{ base: "16", md: "20" }}>
           <PieCharts />
           <LocalBusiness />
           <NoTouristsTraps />

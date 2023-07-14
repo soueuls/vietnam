@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { Hero, Testimonials, WhyUs, Guides, Tours } from "@/sections";
+import { Hero, Testimonials, WhyUs, Guides, Tours, FAQ } from "@/sections";
 
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
       <WhyUs />
       <Guides />
       <Tours />
+      <FAQ />
     </>
   );
 }

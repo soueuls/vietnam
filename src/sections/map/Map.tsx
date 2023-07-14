@@ -1,43 +1,37 @@
-import {
-  Box,
-  chakra,
-  Container,
-  Heading,
-  HStack,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, chakra, Container, Stack, Image, Show } from "@chakra-ui/react";
 
 import type { Tour } from "@/sections/tours";
 
-export const Map = ({ images, texts }: Tour) => {
+import { Gallery } from "./Gallery";
+import { Itinerary } from "./Itinerary";
+
+type Props = {
+  tour: Tour;
+};
+
+export const Map = ({ tour }: Props) => {
   return (
-    <chakra.section as={HStack} minH="100vh">
-      <Box position="relative">
+    <chakra.section
+      as={Stack}
+      direction={{ base: "column-reverse", lg: "row" }}
+      align={{ base: "center", lg: "start" }}
+    >
+      <Box mt={{ base: "-4", lg: "0" }} position="relative">
+        <Show above="lg">
+          <Box
+            position={{ base: "static", lg: "absolute" }}
+            bottom="0"
+            left={{ base: "24", xl: "48" }}
+            w={{ base: "80%", lg: "sm", xl: "lg" }}
+            shadow={{ base: "md", lg: "xl" }}
+          >
+            <Gallery images={tour.images.gallery} />
+          </Box>
+        </Show>
         <Image src="/images/map.png" alt="Map" objectFit="cover" />
-        <Image
-          src={images.hero}
-          position="absolute"
-          bottom="12"
-          right="0"
-          w="lg"
-          rounded="lg"
-          shadow="xl"
-          alt="Tour"
-        />
       </Box>
-      <Container>
-        <Stack spacing="8">
-          <Heading size="4xl">{texts.city.title}</Heading>
-          <Stack spacing="4">
-            {texts.city.paragraphs.map((text, index) => (
-              <Text key={index} fontSize="2xl">
-                {text}
-              </Text>
-            ))}
-          </Stack>
-        </Stack>
+      <Container mt={{ base: "12", md: "24" }}>
+        <Itinerary tour={tour} />
       </Container>
     </chakra.section>
   );

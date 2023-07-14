@@ -10,7 +10,7 @@ const MotionBox = motion(Box);
 
 export const Hero = () => {
   return (
-    <chakra.section h="100vh" position="relative">
+    <chakra.section minH="100vh" position="relative">
       <Image
         fill
         placeholder="blur"
@@ -21,9 +21,9 @@ export const Hero = () => {
       <MotionBox
         position="relative"
         h="full"
-        pt="10vh"
-        px="24"
-        initial={{ y: 200, opacity: 0 }}
+        pt={{ base: "20vh", md: "10vh" }}
+        px={{ base: "4", sm: "6", md: "12", lg: "24" }}
+        initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
           type: "spring",
@@ -32,7 +32,7 @@ export const Hero = () => {
       >
         <Heading
           color="white"
-          size="6xl"
+          size={{ base: "4xl", md: "6xl" }}
           textAlign="center"
           fontWeight="extrabold"
           lineHeight="none"
@@ -54,15 +54,22 @@ export const Hero = () => {
         position="absolute"
         w="full"
         bottom="0"
-        justify="flex-end"
+        justify={{ base: "center", sm: "flex-end" }}
         align="flex-end"
       >
-        <chakra.blockquote color="white" maxW="prose" py="12" px="4">
+        <chakra.blockquote
+          position="absolute"
+          maxW="prose"
+          bottom="12"
+          right={{ base: 0, sm: 400 }}
+        >
           <Text
             fontFamily="handwriting"
-            fontSize="5xl"
-            textShadow="2px 2px 2px #000"
-            textAlign="right"
+            fontSize={{ base: "3xl", md: "5xl" }}
+            fontWeight={{ base: "semibold", sm: "normal" }}
+            textShadow={{ base: "none", md: "2px 2px 2px #000" }}
+            textAlign={{ base: "center", sm: "right" }}
+            color={{ base: "black", sm: "white" }}
           >
             Hello, I am Joshua. I just founded the first ethical travel company
             in Vietnam

@@ -4,9 +4,9 @@ import { ToursList } from "./ToursList";
 
 export const Tours = () => {
   return (
-    <chakra.section pb="24">
+    <chakra.section id="tours" pb={{ base: "12", md: "24" }}>
       <Container maxW="container.xl">
-        <Stack spacing="24">
+        <Stack spacing={{ base: "8", md: "24" }}>
           <Container maxW="container.md">
             <Heading size="3xl" textAlign="center">
               What do you want to explore?

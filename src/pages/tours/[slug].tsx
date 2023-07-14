@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import type { Tour as TourProps } from "@/sections/tours";
 import { TOURS } from "@/sections/tours/fixtures";
-import { TourHero, Map, PhotoAlbum } from "@/sections";
+import { TourHero, Map, Pricing } from "@/sections";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = TOURS.map(({ slug }) => ({ params: { slug } }));
@@ -36,9 +36,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async ({
 const TourPage: NextPage<PageProps> = ({ tour }) => {
   return (
     <>
-      <TourHero {...tour} />
-      <Map {...tour} />
-      <PhotoAlbum {...tour} />
+      <TourHero tour={tour} />
+      <Map tour={tour} />
+      <Pricing tour={tour} />
     </>
   );
 };

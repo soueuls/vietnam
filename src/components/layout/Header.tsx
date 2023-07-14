@@ -1,4 +1,4 @@
-import { chakra, Flex, HStack } from "@chakra-ui/react";
+import { chakra, Flex, Show, HStack } from "@chakra-ui/react";
 
 import { WhatsappButton } from "@/components";
 
@@ -12,15 +12,20 @@ export const Header = () => {
       position="absolute"
       top="0"
       w="full"
-      px="12"
+      px={{ base: "6", md: "12" }}
       py="6"
     >
       <Flex justify="space-between" align="center">
         <Logo />
-        <HStack spacing="12">
-          <Navigation />
-          <WhatsappButton />
-        </HStack>
+        <Show above="md">
+          <HStack spacing="12">
+            <Navigation />
+            <WhatsappButton>Book a tour</WhatsappButton>
+          </HStack>
+        </Show>
+        <Show below="md">
+          <WhatsappButton>Book a tour</WhatsappButton>
+        </Show>
       </Flex>
     </chakra.header>
   );

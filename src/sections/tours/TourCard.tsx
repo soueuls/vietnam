@@ -23,7 +23,7 @@ export const TourCard = ({ slug, name, images, texts }: Tour) => {
         <Image
           src={images.hero}
           alt={name}
-          height="64"
+          height={{ base: "56", md: "64" }}
           w="full"
           objectFit="cover"
         />

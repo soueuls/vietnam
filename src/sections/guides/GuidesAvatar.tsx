@@ -11,8 +11,8 @@ type Props = {
 
 export const GuidesAvatar = ({ guides, onHover }: Props) => {
   return (
-    <Grid gridTemplateColumns="1fr 1fr" gap="10">
-      {guides.map((guide, index) => (
+    <Grid gridTemplateColumns="1fr 1fr" gap={{ base: "4", md: "10" }}>
+      {guides.map((guide) => (
         <GridItem
           key={guide.imageUrl}
           onMouseEnter={() => onHover(guide)}
@@ -21,8 +21,11 @@ export const GuidesAvatar = ({ guides, onHover }: Props) => {
           <MotionImage
             key={guide.imageUrl}
             src={guide.imageUrl}
-            boxSize="56"
+            boxSize={{ base: "40", md: "56" }}
             whileHover={{
+              scale: 1.2,
+            }}
+            whileTap={{
               scale: 1.2,
             }}
             objectFit="cover"

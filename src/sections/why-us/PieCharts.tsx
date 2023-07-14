@@ -1,13 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Heading,
-  HStack,
-  List,
-  ListItem,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Heading, List, ListItem, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { Pie } from "react-roughviz";
 
@@ -27,8 +19,10 @@ const pieProps = {
 
 const Header = () => {
   return (
-    <Stack spacing="6" maxW="prose">
-      <Heading size="xl">1. We pay our guides well</Heading>
+    <Stack spacing={{ base: "4", sm: "6" }} maxW="prose">
+      <Heading size={{ base: "2xl", sm: "xl" }}>
+        1. We pay our guides well
+      </Heading>
       <Stack spacing="4" fontSize="xl">
         <Text>
           In Vietnam, the tour industry is a giant war on prices. Most of the
@@ -79,8 +73,12 @@ export const PieCharts = () => {
   }
 
   return (
-    <Stack spacing="20">
-      <HStack spacing="12">
+    <Stack spacing={{ base: "12", md: "20" }}>
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        alignItems={{ md: "center" }}
+        spacing={{ base: "6", md: "12" }}
+      >
         <Header />
         <Box rounded="xl" overflow="hidden">
           <Image
@@ -89,7 +87,7 @@ export const PieCharts = () => {
             alt="One guide and one customer"
           />
         </Box>
-      </HStack>
+      </Stack>
       <Stack spacing="8">
         <Heading textAlign="center">This is how we split our revenues</Heading>
         <Stack

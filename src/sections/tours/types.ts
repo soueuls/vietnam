@@ -9,11 +9,19 @@ type Texts = {
     title: string;
     paragraphs: string[];
   };
-  city: {
-    title: string;
-    paragraphs: string[];
-  };
-  included: string[];
+  itinerary: string[];
+};
+
+type Pricing = {
+  adults: number;
+  kids: number;
+};
+
+type Revenues = {
+  student: number;
+  company: number;
+  food: number;
+  transport: number;
 };
 
 export type Tour = {
@@ -21,5 +29,6 @@ export type Tour = {
   images: Images;
   name: string;
   texts: Texts;
-  price: number;
+  prices: Pricing;
+  revenues: Revenues;
 };

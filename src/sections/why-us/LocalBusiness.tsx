@@ -1,12 +1,11 @@
-import { Box, Heading, HStack, Stack, Text } from "@chakra-ui/react";
-import Image from "next/image";
-
-const LocalBusinessImage = require("/public/images/reasons/local-business.jpg");
+import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 
 const Header = () => {
   return (
-    <Stack spacing="6" maxW="prose">
-      <Heading size="xl">2. We work with small family business only</Heading>
+    <Stack spacing={{ base: "4", sm: "6" }} maxW="prose">
+      <Heading size={{ base: "2xl", sm: "xl" }}>
+        2. We work with small family business only
+      </Heading>
       <Stack spacing="4" fontSize="xl">
         <Text>
           Each of restaurants, cafes and shops you will visit are small, local,
@@ -28,15 +27,19 @@ const Header = () => {
 
 export const LocalBusiness = () => {
   return (
-    <HStack spacing="12" justify="flex-end">
-      <Box rounded="xl" overflow="hidden">
-        <Image
-          src={LocalBusinessImage}
-          width={500}
-          alt="A woman cook in a small family restaurant in Saigon"
-        />
-      </Box>
+    <Stack
+      direction={{ base: "column-reverse", md: "row" }}
+      alignItems={{ md: "center" }}
+      spacing={{ base: "6", md: "12" }}
+      justify={{ md: "flex-end" }}
+    >
+      <Image
+        src={"/images/reasons/local-business.jpg"}
+        rounded="xl"
+        width={500}
+        alt="A woman cook in a small family restaurant in Saigon"
+      />
       <Header />
-    </HStack>
+    </Stack>
   );
 };

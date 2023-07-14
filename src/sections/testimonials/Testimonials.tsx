@@ -4,7 +4,7 @@ import { Grid } from "./Grid";
 
 export const Testimonials = () => {
   return (
-    <chakra.section py="24">
+    <chakra.section py={{ base: "12", md: "24" }}>
       <Container maxW="container.xl">
         <Stack
           spacing="6"
@@ -13,7 +13,9 @@ export const Testimonials = () => {
         >
           <Container>
             <Stack spacing="6">
-              <Heading size="3xl">They trusted us</Heading>
+              <Heading size={{ base: "4xl", sm: "3xl" }}>
+                They trusted us
+              </Heading>
               <Stack spacing="4" fontSize="xl">
                 <Text>
                   Far from the usual big and heartless tour agencies, we are a

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, HStack } from "@chakra-ui/react";
+import { Container, Stack } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
 
 import type { Guide as GuideProps } from "./types";
@@ -11,7 +11,7 @@ export const GuidesList = () => {
   const [currentGuide, setCurrentGuide] = useState<GuideProps | null>(null);
 
   return (
-    <HStack spacing="12">
+    <Stack direction={{ base: "column", lg: "row" }} spacing="12">
       <GuidesAvatar guides={GUIDES} onHover={setCurrentGuide} />
       <AnimatePresence>
         {currentGuide && (
@@ -20,6 +20,6 @@ export const GuidesList = () => {
           </Container>
         )}
       </AnimatePresence>
-    </HStack>
+    </Stack>
   );
 };

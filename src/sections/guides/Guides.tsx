@@ -3,9 +3,9 @@ import { GuidesList } from "./GuidesList";
 
 export const Guides = () => {
   return (
-    <chakra.section py="24">
+    <chakra.section id="guides" py={{ base: "12", md: "24" }}>
       <Container maxW="container.xl">
-        <Stack spacing="24">
+        <Stack spacing={{ base: "12", md: "24" }}>
           <Container maxW="container.md">
             <Heading size="3xl" textAlign="center">
               Our guides are part of the experience
